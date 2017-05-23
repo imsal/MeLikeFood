@@ -23,11 +23,21 @@
  }
 
  .nav-wrapper {
-  //  margin: 0;
-  padding-top: 15px;
-  padding-bottom: 15px;
   border-top: 2px solid black;
   border-bottom: 2px solid gray;
+
+  ul {
+    margin: 0;
+    li {
+      margin-top: auto;
+    }
+  }
+
+  nav {
+    margin: 0;
+    padding: 0;
+  }
+
  }
 
  .jumbotron {
