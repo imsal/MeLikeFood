@@ -8,6 +8,11 @@ end
 #### ERROR --> An error occurred while installing nokogiri (1.7.2), and Bundler cannot continue
 gem 'nokogiri', '~> 1.7.2'
 
+# Bootstrap
+gem 'bootstrap-sass', '~> 3.2.0'
+gem 'autoprefixer-rails' # adds vendors prefixes to broswer specific transforms
+gem 'jquery-rails', '4.1.1'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
 # Use postgresql as the database for Active Record
