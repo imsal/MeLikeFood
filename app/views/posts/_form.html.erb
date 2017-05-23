@@ -1,0 +1,77 @@
+<%= form_with(model: post, local: true) do |form| %>
+  <% if post.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+
+      <ul>
+      <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%#= form.label :categories %>
+    <%#= form.text_area :categories, id: :post_categories %>
+
+    <%= form.label :category_list %>
+    <%= form.text_area :category_list %>
+  </div>
+
+  <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :post_title %>
+  </div>
+
+  <div class="field">
+    <%= form.label :ingredients_list %>
+    <%= form.text_area :ingredients_list %>
+    <%#= form.label :ingredients %>
+    <%#= form.text_area :ingredients, id: :post_ingredients %>
+  </div>
+
+  <div class="field">
+    <%= form.label :content %>
+    <%= form.text_area :content, id: :post_content %>
+  </div>
+
+  <div class="field">
+    <%= form.label :author %>
+    <%= form.text_field :author, id: :post_author %>
+  </div>
+
+  <div class="field">
+    <%= form.label :prep_time %>
+    <%= form.text_field :prep_time, id: :post_prep_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :cook_time %>
+    <%= form.text_field :cook_time, id: :post_cook_time %>
+  </div>
+
+  <div class="field">
+    <%= form.label :yield %>
+    <%= form.text_field :yield, id: :post_yield %>
+  </div>
+
+  <div class="field">
+    <%= form.label :directions %>
+    <%= form.text_area :directions, id: :post_directions %>
+  </div>
+
+  <div class="field">
+    <%= form.label :tips %>
+    <%= form.text_area :tips, id: :post_tips %>
+  </div>
+
+  <div class="field">
+    <%= form.label :rating %>
+    <%= form.number_field :rating, id: :post_rating %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

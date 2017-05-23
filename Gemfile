@@ -15,7 +15,7 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'autoprefixer-rails' # adds vendors prefixes to broswer specific transforms
 gem 'jquery-rails', '4.1.1'
 gem "paperclip", "~> 5.0.0" # allows to add images to db
-gem 'acts-as-taggable-on', '~> 4.0'
+gem 'acts-as-taggable-on', :git => 'https://github.com/mbleigh/acts-as-taggable-on'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.1.1'
