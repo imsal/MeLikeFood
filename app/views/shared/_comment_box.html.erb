@@ -1,0 +1,45 @@
+<%= form_for [@post, Comment.new] do |f| %>
+
+<div class="row">
+
+
+<div class="col-lg-8">
+
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :comment_name, class: 'form-control' %>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: :comment_email, class: 'form-control email' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :website, id: :comment_website, class: 'form-control url' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :rating %>
+    <%= f.text_field :rating, id: :comment_rating, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, id: :comment_comment, class: 'form-control', rows: 5 %>
+</div>
+
+<div class="form-group">
+    <%= f.label :email_notification, class: 'form-check-label' %>
+    <%= f.check_box :email_notification, id: :comment_email_notification, class: 'form-check-input' %>
+</div>
+
+<%= f.submit 'Add Comment' %>
+
+
+</div> <!-- ./col-lg-6 -->
+
+</div> <!-- ./row -->
+<% end %>
