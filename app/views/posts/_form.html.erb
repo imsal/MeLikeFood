@@ -19,7 +19,7 @@
 
   <div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :post_content, class: 'form-control' %>
+    <%= form.text_area :content, id: :post_content, class: 'form-control', rows: 50 %>
   </div>
 
   <!-- <div class="field"> -->
@@ -44,12 +44,17 @@
 
   <div class="form-group">
     <%= form.label :directions %>
-    <%= form.text_area :directions, id: :post_directions, class: 'form-control' %>
+    <%= form.text_area :directions, id: :post_directions, class: 'form-control', rows: 40 %>
   </div>
 
   <div class="form-group">
     <%= form.label :tips %>
-    <%= form.text_area :tips, id: :post_tips, class: 'form-control' %>
+    <%= form.text_area :tips, id: :post_tips, class: 'form-control', rows: 10 %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :equipment_needed_list %>
+    <%= form.text_area :equipment_needed_list , id: :post_equipment_needed, class: 'form-control' %>
   </div>
 
 
