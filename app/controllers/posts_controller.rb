@@ -1,5 +1,7 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :replace_refference_with_html, only: [:show]
+
 
   # GET /posts
   # GET /posts.json
@@ -71,4 +73,20 @@ class PostsController < ApplicationController
     def post_params
       params.require(:post).permit(:categories, :title, :ingredients, :content, :author, :prep_time, :cook_time, :yield, :directions, :tips, :rating, :category_list, :ingredient_list, :equipment_needed, :equipment_needed_list )
     end
+
+    def replace_refference_with_html
+      if @post.content.include?("^^^^")
+        matches = @post.content.scan(/\^\^\^\^(.+)\^\^\^\^/).flatten
+
+        @post.images.each_with_index do |image, index|
+          #matches.each do |match|
+            if image.image_reference_id == matches[index]
+              @post.content.sub(/#{matches[index]}/, "")
+
+            end
+          #end
+        end
+      end
+    end
+
 end

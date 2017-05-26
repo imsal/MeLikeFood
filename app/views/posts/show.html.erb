@@ -7,10 +7,36 @@
 </p>
 <hr/>
 
+
+<!-- Show / Remove Images -->
+<% if @post.images.any? %>
+
+<% @post.images.each_with_index do |image, index| %>
+<!-- First image is used at the top as header -->
+<% if index == 0 %>
+<%= provide :large_top_image, (image_tag image.image_file.url(:large), class: 'center-block') %>
+<% else %>
+<%= provide :medium_bottom_image, (image_tag image.image_file.url(:medium)) %>
+<% end %>
+
+<% end %>
+
+<% end %>
+
+
+<%= yield :large_top_image %>
+
+
 <p>
-    CONTENT:
     <%= @post.content.html_safe %> <!-- .html_safe lets you render html from strings/text -->
 </p>
+
+
+<%= yield :medium_bottom_image %>
+
+
+
+
 
 <table class="table">
     <tr>

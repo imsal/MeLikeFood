@@ -1,80 +1,98 @@
-<%= form_with(model: post, local: true) do |form| %>
-  <% if post.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(post.errors.count, "error") %> prohibited this post from being saved:</h2>
+<div class="form-group">
+    <%#= form.label :gallery %>
+    <div class="gallery_form">
 
-      <ul>
-      <% post.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
+        <!-- Show / Remove Images -->
+        <% if @post.images.any? %>
+
+        <% @post.images.each do |image| %>
+
+        <%= image_tag image.image_file.url(:thumb) %>
+        <%= link_to 'X', post_image_path( post_id: @post.id, id: image.id, action: 'destroy' ), :method => :delete %>
+                <%#= link_to 'X', post_image_path( post_id: @post.id, id: image.id, action: 'destroy' ), :method => :delete, data: { confirm: 'Are you sure?'} %>
+
+        <% end %>
+
+        <% end %>
+
+
     </div>
-  <% end %>
+</div>
 
+<%= form_with(model: post, local: true) do |form| %>
+<% if post.errors.any? %>
+<div id="error_explanation">
+    <h2><%= pluralize(post.errors.count, "error") %>
+        prohibited this post from being saved:</h2>
 
-  <div class="form-group">
+    <ul>
+        <% post.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+        <% end %>
+    </ul>
+</div>
+<% end %>
+
+<div class="form-group">
     <%= form.label :title %>
     <%= form.text_field :title, id: :post_title, class: 'form-control' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :content %>
-    <%= form.text_area :content, id: :post_content, class: 'form-control', rows: 50 %>
-  </div>
+    <%= form.text_area :content, id: :post_content, class: 'form-control', rows: 50, placeholder: 'html safe' %>
+</div>
 
-  <!-- <div class="field"> -->
-    <%#= form.label :author %>
-    <%#= form.text_field :author, id: :post_author %>
-  <!-- </div> -->
+<!-- <div class="field"> -->
+<%#= form.label :author %>
+<%#= form.text_field :author, id: :post_author %>
+<!-- </div> -->
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :prep_time %>
     <%= form.text_field :prep_time, id: :post_prep_time, class: 'form-control' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :cook_time %>
     <%= form.text_field :cook_time, id: :post_cook_time, class: 'form-control' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :yield %>
     <%= form.text_field :yield, id: :post_yield, class: 'form-control' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :directions %>
     <%= form.text_area :directions, id: :post_directions, class: 'form-control', rows: 40, placeholder: 'html safe' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :tips %>
     <%= form.text_area :tips, id: :post_tips, class: 'form-control', rows: 10, placeholder: 'html safe' %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :equipment_needed_list %>
     <%= form.text_area :equipment_needed_list , id: :post_equipment_needed, class: 'form-control' %>
-  </div>
+</div>
 
-
-  <div class="form-group">
+<div class="form-group">
     <%= form.label :ingredient_list %>
     <%= form.text_area :ingredient_list, class: 'form-control' %>
     <%#= form.label :ingredients %>
     <%#= form.text_area :ingredients, id: :post_ingredients %>
-  </div>
+</div>
 
-  <div class="form-group">
+<div class="form-group">
 
     <%= form.label :category_list %>
     <%= form.text_area :category_list, class: 'form-control' %>
-  </div>
+</div>
 
-
-  <div class="form-group">
+<div class="form-group">
     <%= form.submit %>
-  </div>
-
+</div>
 
 <% end %>

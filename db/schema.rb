@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170524032037) do
+ActiveRecord::Schema.define(version: 20170526214945) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,6 +28,18 @@ ActiveRecord::Schema.define(version: 20170524032037) do
     t.index ["post_id"], name: "index_comments_on_post_id"
   end
 
+  create_table "images", force: :cascade do |t|
+    t.bigint "post_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "image_file_file_name"
+    t.string "image_file_content_type"
+    t.integer "image_file_file_size"
+    t.datetime "image_file_updated_at"
+    t.string "image_reference_id"
+    t.index ["post_id"], name: "index_images_on_post_id"
+  end
+
   create_table "posts", force: :cascade do |t|
     t.text "categories"
     t.string "title"
@@ -43,6 +55,7 @@ ActiveRecord::Schema.define(version: 20170524032037) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "equipment_needed"
+    t.string "image_file"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|

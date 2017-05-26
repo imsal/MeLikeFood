@@ -1,0 +1,10 @@
+<%= form_for [@post, Image.new] do |f| %>
+
+<%= f.file_field :image_file %>
+
+<%= f.label :image_reference_id %>
+<%= f.text_field :image_reference_id %>
+
+<%= f.submit 'Upload image' %>
+
+<% end %>
