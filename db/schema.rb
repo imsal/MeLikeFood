@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170526214945) do
+ActiveRecord::Schema.define(version: 20170605212755) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -56,6 +56,19 @@ ActiveRecord::Schema.define(version: 20170526214945) do
     t.datetime "updated_at", null: false
     t.string "equipment_needed"
     t.string "image_file"
+    t.integer "temp"
+  end
+
+  create_table "replies", force: :cascade do |t|
+    t.bigint "comment_id"
+    t.string "name"
+    t.string "email"
+    t.string "website"
+    t.integer "rating"
+    t.text "comment"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["comment_id"], name: "index_replies_on_comment_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -83,4 +96,14 @@ ActiveRecord::Schema.define(version: 20170526214945) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  create_table "users", force: :cascade do |t|
+    t.string "name"
+    t.string "email"
+    t.string "password_digest"
+    t.boolean "admin", default: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_foreign_key "replies", "comments"
 end

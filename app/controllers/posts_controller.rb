@@ -1,6 +1,5 @@
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :replace_refference_with_html, only: [:show]
 
 
   # GET /posts
@@ -12,6 +11,7 @@ class PostsController < ApplicationController
   # GET /posts/1
   # GET /posts/1.json
   def show
+    @comment_box_title = "Leave a Comment"
   end
 
   # GET /posts/new
@@ -71,22 +71,11 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:categories, :title, :ingredients, :content, :author, :prep_time, :cook_time, :yield, :directions, :tips, :rating, :category_list, :ingredient_list, :equipment_needed, :equipment_needed_list )
+      params.require(:post).permit(:categories, :title, :ingredients, :content, :author, :prep_time, :cook_time, :yield, :directions, :tips, :rating, :category_list, :ingredient_list, :equipment_needed, :equipment_needed_list, :temp )
     end
 
-    def replace_refference_with_html
-      if @post.content.include?("^^^^")
-        matches = @post.content.scan(/\^\^\^\^(.+)\^\^\^\^/).flatten
-
-        @post.images.each_with_index do |image, index|
-          #matches.each do |match|
-            if image.image_reference_id == matches[index]
-              @post.content.sub(/#{matches[index]}/, "")
-
-            end
-          #end
-        end
-      end
+    def change_comment_box_to_replies
+      @comment_box_title = "Reply to"
     end
 
 end

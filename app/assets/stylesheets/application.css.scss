@@ -50,3 +50,11 @@
   padding: 5px;
   border: 1px solid black;
 }
+
+.box{
+background-color: #D4D4D4;
+-moz-box-shadow: 10px 10px 5px #888;
+-webkit-box-shadow: 10px 10px 5px #888;
+box-shadow: 10px 10px 5px #888;
+//border: 2px solid black;
+}

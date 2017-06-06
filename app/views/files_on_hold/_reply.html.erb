@@ -1,0 +1,49 @@
+<!-- Reply Form -->
+
+
+<div id="reply-box">
+
+<h1 id="reply-box-title">Reply To</h1>
+<%= form_for Reply.new do |f| %>
+
+<div class="row">
+
+
+<div class="col-lg-8">
+
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :reply_name, class: 'form-control' %>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: :reply_email, class: 'form-control email' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :website, id: :reply_website, class: 'form-control url' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :rating %>
+    <%= f.text_field :rating, id: :reply_rating, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, id: :reply_comment, class: 'form-control', rows: 5 %>
+</div>
+
+<p class="cancel-reply-to-button">Cancel reply</p>
+
+<%= f.submit 'Add reply' %>
+
+
+</div> <!-- ./col-lg-6 -->
+
+</div> <!-- ./row -->
+<% end %>
+</div><!-- /.reply-box -->

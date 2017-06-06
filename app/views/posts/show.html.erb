@@ -1,3 +1,7 @@
+<%= provide(:application_head_content) do %>
+<%= javascript_include_tag "commenting", "application" %>
+<% end %>
+
 <p id="notice"><%= notice %></p>
 
 <h1><%= @post.title %></h1>
@@ -110,12 +114,82 @@
 <hr/>
 
 
-<h1>Leave a Comment</h1>
-
-<%= render 'shared/comment_box' %>
 
 
+<%#= render 'shared/comment_box' %>
+<!-- COMMENT / REPLES START -->
 
+<!-- Comment Box (Hide on reply) -->
+
+<div id="comment-box">
+
+<h1 id="comment-box-title"><%= @comment_box_title %></h1>
+<%= form_for [@post, Comment.new] do |f| %>
+
+<div class="row">
+
+
+<div class="col-lg-8">
+
+<div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :name, id: :comment_name, class: 'form-control' %>
+</div>
+
+
+<div class="form-group">
+    <%= f.label :email %>
+    <%= f.text_field :email, id: :comment_email, class: 'form-control email' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :website %>
+    <%= f.text_field :website, id: :comment_website, class: 'form-control url' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :rating %>
+    <%= f.text_field :rating, id: :comment_rating, class: 'form-control' %>
+</div>
+
+<div class="form-group">
+    <%= f.label :comment %>
+    <%= f.text_area :comment, id: :comment_comment, class: 'form-control', rows: 5 %>
+</div>
+
+<div class="form-group">
+    <%= f.label :email_notification, class: 'form-check-label' %>
+    <%= f.check_box :email_notification, id: :comment_email_notification, class: 'form-check-input' %>
+</div>
+
+<%= f.submit 'Add Comment' %>
+
+
+</div> <!-- ./col-lg-6 -->
+
+</div> <!-- ./row -->
+<% end %>
+</div><!-- ./comment-box -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- COMMENT / REPLIES END -->
 
 <% if @post.comments.any? %>
 
@@ -125,10 +199,13 @@
 <div class="comment">
 <h4><%= comment.name %></h4>
 <p><i><%= comment.created_at.strftime("%m/%d/%y") %></i></p>
-<p><%= comment.rating %></p>
+<p>Rating: <%= comment.rating %></p>
 <p><%= comment.comment %></p>
-<p>Reply</p>
-</div>
+
+<!-- <p class="reply-to-button">Reply</p> -->
+
+
+</div><!-- ./comment -->
 
 <% end %>
 <% end %>

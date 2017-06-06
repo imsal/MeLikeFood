@@ -1,8 +1,21 @@
-<!--
-<h1>MeLikeFood.com Welcome Page</h1>
-<p>Coming soon to a kitchen near you.</p>
--->
-<h1>Latest Threads</h1>
-<% @posts.each do |post| %>
-<%= link_to post.title, post %>
+<h1>Latest Recipes</h1>
+
+<% @posts.reverse.each_with_index do |post, index| %>
+
+<div class="box">
+
+
+
+        <h3><%= link_to post.title, post %></h3>
+        <p>
+            <i><%= post.created_at.strftime("%m/%d/%y") %></i>
+        </p>
+
+        <%= image_tag post.images.first.image_file.url(:medium) if post.images.any? %>
+        <p><%= truncate strip_tags(post.content), :length => 150 %>...</p>
+        <!-- truncate displays the first 150 chars of a string -->
+    </div>
+
+
+
 <% end %>
