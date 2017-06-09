@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users
 
 
+# change post link to ex --> localhost:3000/the-godfather-part-one based off title of article
+
 resources 'posts' do
   resources 'comments'
   resources 'images'

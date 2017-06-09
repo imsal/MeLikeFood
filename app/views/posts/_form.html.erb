@@ -42,53 +42,75 @@
     <%= form.text_area :content, id: :post_content, class: 'form-control', rows: 50, placeholder: 'html safe' %>
 </div>
 
-<!-- <div class="field"> -->
-<%#= form.label :author %>
-<%#= form.text_field :author, id: :post_author %>
-<!-- </div> -->
+<div class="field">
+<%= form.label :author %>
+<%= form.text_field :author, id: :post_author, class: 'form-control' %>
+</div>
 
+<div class="field">
+<%= form.label :producer %>
+<%= form.text_field :producer, id: :post_producer, class: 'form-control' %>
+</div>
+
+<div class="field">
+<%= form.label :micro_review %>
+<%= form.text_field :micro_review, id: :post_micro_review, class: 'form-control' %>
+</div>
+
+
+
+
+
+
+
+<!-- TAGS START -->
 <div class="form-group">
-    <%= form.label :prep_time %>
-    <%= form.text_field :prep_time, id: :post_prep_time, class: 'form-control' %>
+    <%= form.label :genre_list %>
+    <%= form.text_area :genre_list , id: :post_genre_list, class: 'form-control' %>
+</div>
+
+<!-- MIGHT NEED TO CHANGE DIRECTED LIST LATER due to director being singular .. also rating and media_type -->
+<div class="form-group">
+    <%= form.label :directed_by_list %>
+    <%= form.text_area :directed_by_list , id: :post_directed_by_list, class: 'form-control' %>
 </div>
 
 <div class="form-group">
-    <%= form.label :cook_time %>
-    <%= form.text_field :cook_time, id: :post_cook_time, class: 'form-control' %>
+    <%= form.label :starring_list %>
+    <%= form.text_area :starring_list , id: :post_starring_list, class: 'form-control' %>
 </div>
 
 <div class="form-group">
-    <%= form.label :yield %>
-    <%= form.text_field :yield, id: :post_yield, class: 'form-control' %>
+    <%= form.label :release_date_list %>
+    <%= form.text_area :release_date_list , id: :post_release_date_list, class: 'form-control' %>
 </div>
 
 <div class="form-group">
-    <%= form.label :directions %>
-    <%= form.text_area :directions, id: :post_directions, class: 'form-control', rows: 40, placeholder: 'html safe' %>
+    <%= form.label :general_tag_list %>
+    <%= form.text_area :general_tag_list , id: :post_general_tag_list, class: 'form-control' %>
 </div>
 
 <div class="form-group">
-    <%= form.label :tips %>
-    <%= form.text_area :tips, id: :post_tips, class: 'form-control', rows: 10, placeholder: 'html safe' %>
+    <%= form.label :rating %>
+    <%= form.select :rating, Post.ratings.keys,
+                        prompt: 'Select a Rating',
+                        class: 'form-control',
+                        id: 'post_rating' %>
 </div>
 
 <div class="form-group">
-    <%= form.label :equipment_needed_list %>
-    <%= form.text_area :equipment_needed_list , id: :post_equipment_needed, class: 'form-control' %>
+    <%= form.label :media_type %>
+    <%= form.select :media_type, Post.media_types.keys,
+                                    prompt: 'Select a Media Type',
+                                    id: :post_media,
+                                    class: 'form-control' %>
 </div>
 
-<div class="form-group">
-    <%= form.label :ingredient_list %>
-    <%= form.text_area :ingredient_list, class: 'form-control' %>
-    <%#= form.label :ingredients %>
-    <%#= form.text_area :ingredients, id: :post_ingredients %>
-</div>
 
-<div class="form-group">
 
-    <%= form.label :category_list %>
-    <%= form.text_area :category_list, class: 'form-control' %>
-</div>
+<!-- TAGS END -->
+
+
 
 <div class="form-group">
     <%= form.submit %>

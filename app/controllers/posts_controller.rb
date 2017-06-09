@@ -71,7 +71,8 @@ class PostsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def post_params
-      params.require(:post).permit(:categories, :title, :ingredients, :content, :author, :prep_time, :cook_time, :yield, :directions, :tips, :rating, :category_list, :ingredient_list, :equipment_needed, :equipment_needed_list, :temp )
+      params.require(:post).permit(:title, :content, :author, :genre_list, :directed_by_list, :starring_list, :release_date_list, :general_tag_list, :rating, :producer, :media_type, :micro_review)
+      # OLD PARAMS --> (:categories, :title, :ingredients, :content, :author, :prep_time, :cook_time, :yield, :directions, :tips, :rating, :category_list, :ingredient_list, :equipment_needed, :equipment_needed_list, :temp )
     end
 
     def change_comment_box_to_replies

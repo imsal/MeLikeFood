@@ -12,7 +12,7 @@
 <hr/>
 
 
-<!-- Show / Remove Images -->
+<!-- Show Images -->
 <% if @post.images.any? %>
 
 <% @post.images.each_with_index do |image, index| %>
@@ -20,6 +20,7 @@
 <% if index == 0 %>
 <%= provide :large_top_image, (image_tag image.image_file.url(:large), class: 'center-block') %>
 <% else %>
+<!-- Remaining Images are placed at the bottom of the content -->
 <%= provide :medium_bottom_image, (image_tag image.image_file.url(:medium)) %>
 <% end %>
 
@@ -67,6 +68,26 @@
 <hr/>
 
 <h1><%= @post.title %></h1>
+
+
+<h4>Genre</h4>
+<p><%= @post.genre_list %></p>
+<h4>Directed By</h4>
+<p><%= @post.directed_by_list %></p>
+<h4>Starring</h4>
+<p><%= @post.starring_list %></p>
+<h4>Released</h4>
+<p><%= @post.release_date_list %></p>
+<h4>Tags</h4>
+<p><%= @post.general_tag_list %></p>
+<h4>Movie Rating</h4>
+<p><%= @post.rating %></p>
+<h4>Produced By</h4>
+<p><%= @post.producer %></p>
+<h4>Media Type</h4>
+<p><%= @post.media_type %></p>
+<h4>Micro Review</h4>
+<p><%= @post.micro_review %></p>
 
 
 
