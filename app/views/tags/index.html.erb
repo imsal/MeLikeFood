@@ -1,0 +1,22 @@
+<h1>Tags</h1>
+<p>Search recipes by tag.</p>
+
+
+<h3>Ingredients</h3>
+
+<% @ingredients_tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+
+<h3>Equipment Needed</h3>
+
+<% @equipment_needed_tags.each do |tag| %>
+  <%= tag.name %>
+<% end %>
+
+<h3>Most Popular Categories</h3>
+
+<% @categories_tags.each do |tag| %>
+  <%= link_to tag.name, "" %>
+  <!-- Post.tagged_with('Mexican') -->
+<% end %>

@@ -7,7 +7,7 @@
 <h1><%= @post.title %></h1>
 <p>
     <i>Uploaded
-        <%= @post.created_at.strftime("%m/%d/%y") %></i>
+        <%= @post.created_at.strftime("%m/%d/%y") %> by <%= @post.author %></i>
 </p>
 <hr/>
 
@@ -44,17 +44,17 @@
 
 <table class="table">
     <tr>
-        <th>Author</th>
+
+        <!--
         <th>Prep Time</th>
         <th>Cook Time</th>
-        <th>Yield</th>
+        <th>Yield</th> -->
     </tr>
 
     <tr>
-        <td><%= @post.author %></td>
-        <td><%= @post.prep_time %></td>
-        <td><%= @post.cook_time %></td>
-        <td><%= @post.yield %></td>
+        <!-- <td><%#= @post.prep_time %></td>
+        <td><%#= @post.cook_time %></td>
+        <td><%#= @post.yield %></td> -->
     </tr>
 </table>
 
@@ -70,46 +70,55 @@
 
 
 
-
-<h3>Equipment Needed</h3><!-- REFACTOR THIS LATER!!!! -->
+<!--
+<h3>Equipment Needed</h3>
 <p>
     <%#= @post.equipment_needed_list %>
-    <% if @post.equipment_needed.any? %>
+    <#% if @post.equipment_needed.any? %>
     <ul>
-    <% @post.equipment_needed.each do |item| %>
-    <li><%= item.name %></li>
-    <% end %>
+    <#% @post.equipment_needed.each do |item| %>
+    <li><%#= item.name %></li>
+    <#% end %>
     </ul>
-    <% end %>
+    <#% end %>
 </p>
+-->
 
 
 
+<!--
 <h3>Ingredients</h3>
 <p>
-    <%= @post.ingredient_list %>
+    <%#= @post.ingredient_list %>
 </p>
 
 <h3>Directions</h3>
 <p>
-    <%= @post.directions.html_safe %>
+    <%#= @post.directions.html_safe %>
 </p>
 
 <h4>Tips</h4>
 <p>
-    <%= @post.tips.html_safe %>
+    <%#= @post.tips.html_safe %>
 </p>
+
+
+
+
+
+<p>
+    <strong>Tags:</strong>
+    <%#= @post.category_list %>
+</p>
+-->
+
+
 
 <!--
 <p>
   <strong>Rating:</strong>
   <%#= @post.rating %>
 </p> -->
-
-<p>
-    <strong>Tags:</strong>
-    <%= @post.category_list %>
-</p>
 
 <hr/>
 
